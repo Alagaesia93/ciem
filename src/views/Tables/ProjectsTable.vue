@@ -9,9 +9,9 @@
             {{title}}
           </h3>
         </div>
-        <div class="col text-right">
+        <!-- <div class="col text-right">
           <base-button type="primary" size="sm">See all</base-button>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -22,11 +22,9 @@
                   tbody-classes="list"
                   :data="tableData">
         <template slot="columns">
-          <th>Project</th>
-          <th>Budget</th>
-          <th>Status</th>
-          <th>Users</th>
-          <th>Completion</th>
+          <th>Cliente</th>
+          <th>Stato</th>
+          <th># Files</th>
           <th></th>
         </template>
 
@@ -41,9 +39,6 @@
               </div>
             </div>
           </th>
-          <td class="budget">
-            {{row.budget}}
-          </td>
           <td>
             <badge class="badge-dot mr-4" :type="row.statusType">
               <i :class="`bg-${row.statusType}`"></i>
@@ -51,49 +46,15 @@
             </badge>
           </td>
           <td>
-            <div class="avatar-group">
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                <img alt="Image placeholder" src="img/theme/team-1-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
-                <img alt="Image placeholder" src="img/theme/team-2-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
-                <img alt="Image placeholder" src="img/theme/team-3-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
-                <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
-              </a>
-            </div>
+            {{ row.num_files }}
           </td>
-
           <td>
-            <div class="d-flex align-items-center">
-              <span class="completion mr-2">{{row.completion}}%</span>
-              <div>
-                <base-progress :type="row.statusType"
-                               :show-percentage="false"
-                               class="pt-0"
-                               :value="row.completion"/>
+            <router-link to="/profile">
+              <div class="col text-right">
+                <base-button type="primary" size="sm">Visualizza</base-button>
               </div>
-            </div>
+            </router-link>
           </td>
-
-          <td class="text-right">
-            <base-dropdown class="dropdown"
-                           position="right">
-              <a slot="title" class="btn btn-sm btn-icon-only text-light" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i>
-              </a>
-
-              <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </template>
-            </base-dropdown>
-          </td>
-
         </template>
 
       </base-table>
@@ -120,43 +81,46 @@
         tableData: [
           {
             img: 'img/theme/bootstrap.jpg',
-            title: 'Argon Design System',
-            budget: '$2500 USD',
+            title: 'Cliente 1',
             status: 'pending',
             statusType: 'warning',
-            completion: 60
+            num_files: 200
           },
           {
             img: 'img/theme/angular.jpg',
-            title: 'Angular Now UI Kit PRO',
+            title: 'Cliente 2',
             budget: '$1800 USD',
             status: 'completed',
             statusType: 'success',
-            completion: 100
+            completion: 100,
+            num_files: 12
           },
           {
             img: 'img/theme/sketch.jpg',
-            title: 'Black Dashboard',
+            title: 'Cliente 3',
             budget: '$3150 USD',
             status: 'delayed',
             statusType: 'danger',
-            completion: 72
+            completion: 72,
+            num_files: 8
           },
           {
             img: 'img/theme/react.jpg',
-            title: 'React Material Dashboard',
+            title: 'Cliente 4',
             budget: '$4400 USD',
             status: 'on schedule',
             statusType: 'info',
-            completion: 90
+            completion: 90,
+            num_files: 400
           },
           {
             img: 'img/theme/vue.jpg',
-            title: 'Vue Paper UI Kit PRO',
+            title: 'Cliente 5',
             budget: '$2200 USD',
             status: 'completed',
             statusType: 'success',
-            completion: 100
+            completion: 100,
+            num_files: 167
           }
         ]
       }
